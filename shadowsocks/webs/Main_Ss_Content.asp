@@ -180,7 +180,7 @@ function pop_node_add() {
 					shade: 0.2,
 					time: 20000, //20s后自动关闭
 					area: ['450px'],
-					btn: ['添加ss节点', '添加ssr节点', '添加koolgame节点', '添加V2Ray节点','添加Trojan(go)/Hysteria2节点','添加NaiveProxy节点'],
+					btn: ['添加ss节点', '添加koolgame节点', '添加V2Ray节点','添加Trojan(go)/Hysteria2节点','添加NaiveProxy节点'],
 					btnAlign: 'c',
 					btn1: function(index, layero) {
 						setTimeout("Add_profile();", 300);
@@ -189,19 +189,19 @@ function pop_node_add() {
 					},
 					btn2: function(index, layero) {
 						setTimeout("Add_profile();", 300);
-						setTimeout("tabclickhandler(1);", 320);
+						setTimeout("tabclickhandler(2);", 320);
 					},
 					btn3: function(index, layero) {
 						setTimeout("Add_profile();", 300);
-						setTimeout("tabclickhandler(2);", 320);
+						setTimeout("tabclickhandler(3);", 320);
 					},
 					btn4: function(index, layero) {
 						setTimeout("Add_profile();", 300);
-						setTimeout("tabclickhandler(3);", 320);
+						setTimeout("tabclickhandler(4);", 320);
 					},
 					btn5: function(index, layero) {
 						setTimeout("Add_profile();", 300);
-						setTimeout("tabclickhandler(4);", 320);
+						setTimeout("tabclickhandler(5);", 320);
 					}
 				});
 			},
@@ -1316,7 +1316,7 @@ function Add_profile() { //点击节点页面内添加节点动作
 	E("ss_node_table_v2ray_network_security").value = "none";
 	E("ss_node_table_v2ray_headtype_tcp").value = "none";
 	E("ssTitle").style.display = "";
-	E("ssrTitle").style.display = "";
+	E("ssrTitle").style.display = "none";
 	E("gamev2Title").style.display = "";
 	E("v2rayTitle").style.display = "";
 	E("trojanTitle").style.display = "";
@@ -2198,10 +2198,8 @@ for (var i = 0; i < params1_input.length; i++) {
     E("naiveTitle").style.display = "none";
 
 	if (c["rss_protocol"]) { //判断节点为SSR
-		$("#vpnc_settings").fadeIn(200);
-		E("ssrTitle").style.display = "";
-		$("#ssrTitle").html("编辑SSR账号");
-		tabclickhandler(1);
+		alert("检测到历史SSR节点：当前版本已移除SSR，请在节点列表中删除或手动迁移为SS/V2Ray/Trojan/Hysteria2节点。");
+		return false;
 	} else if (c["naive_protocol"]) { //判断节点为naive
 			$("#vpnc_settings").fadeIn(200);
 			E("naiveTitle").style.display = "";
@@ -5590,13 +5588,13 @@ taobao.com
 											<table style="margin:8px 0px 0px 0px;" width="100%" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#6b8fa3" class="FormTable">
 												<thead>
 												<tr>
-													<td colspan="3">通过ss/ssr/vmess/vless/trojan/trojan-go链接添加服务器</td>
+													<td colspan="3">通过ss/vmess/vless/trojan/trojan-go/hysteria2链接添加服务器</td>
 												</tr>
 												</thead>
 												<tr>
-													<th width="35%">ss/ssr/vmess/vless/trojan/trojan-go/Hysteria2链接</th>
+													<th width="35%">ss/vmess/vless/trojan/trojan-go/Hysteria2链接</th>
 													<td>
-														<textarea placeholder="填入以ss://或者ssr://或者vmess://或者vless://或者trojan://或者trojan-go://或者hysteria2://开头的链接,多个链接请分行填写" rows=9 style="width:99%; font-family:'Lucida Console'; font-size:12px;background:#475A5F;color:#FFFFFF;border:1px solid gray;" id="ss_base64_links" name="ss_base64_links" title="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+														<textarea placeholder="填入以ss://或者vmess://或者vless://或者trojan://或者trojan-go://或者hysteria2://开头的链接,多个链接请分行填写" rows=9 style="width:99%; font-family:'Lucida Console'; font-size:12px;background:#475A5F;color:#FFFFFF;border:1px solid gray;" id="ss_base64_links" name="ss_base64_links" title="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 													</td>
 												</tr>
 												<tr>
@@ -5666,7 +5664,7 @@ taobao.com
 													</td>
 												</tr>
 												<tr>
-													<th style="width:20%;"><a class="hintstyle" href="javascript:void(0);" onclick="openssHint(24)">恢复SS配置（支持ss/ssr的json节点）</a></th>
+													<th style="width:20%;"><a class="hintstyle" href="javascript:void(0);" onclick="openssHint(24)">恢复SS配置（支持ss/vmess/vless/trojan等json节点）</a></th>
 													<td>
 														<input style="color:#FFCC00;*color:#000;width: 200px;" id="ss_file" type="file" name="file"/>
 														<img id="loadingicon" style="margin-left:5px;margin-right:5px;display:none;" src="/images/InternetScan.gif"/>

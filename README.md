@@ -126,3 +126,11 @@ Supported models (koolshare Merlin **380** based firmware):
   2. 编辑保存时加入上述三字段写回
   3. 删除节点时加入上述三字段清理
 - 结果：HY2 三个选填参数在“新增/编辑/删除”全链路保持一致，不影响其它协议。
+
+## Maintenance Notes (2026-03-02 Update)
+
+- Removed Naive support entry from web flow (hidden tab + blocked selection).
+- Removed `naive` binary from package source.
+- Removed `naive` from pack target list.
+- Added runtime fallback guard to avoid starting legacy Naive path.
+- Existing historical Naive nodes now show migration/removal prompt when editing.

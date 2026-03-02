@@ -2150,7 +2150,33 @@ create_hy2_json(){
 		echo_date 生成Hysteria2配置文件...
 		 #HY2
 
-	cat >"$HY2_CONFIG_FILE" <<-EOF		
+			local hy2_obfs="$(dbus get ss_basic_hy2_obfs)"
+		local hy2_up="$(dbus get ss_basic_hy2_up_mbps)"
+		local hy2_down="$(dbus get ss_basic_hy2_down_mbps)"
+		local hy2_obfs_block=""
+		local hy2_bw_block=""
+
+		if [ -n "$hy2_obfs" ]; then
+			hy2_obfs_block=",
+				"obfs": {
+					"type": "salamander",
+					"salamander": {
+						"password": "$hy2_obfs"
+					}
+				}"
+		fi
+
+		if [ -n "$hy2_up" ] || [ -n "$hy2_down" ]; then
+			[ -z "$hy2_up" ] && hy2_up="10"
+			[ -z "$hy2_down" ] && hy2_down="50"
+			hy2_bw_block=",
+				"bandwidth": {
+					"up": "${hy2_up} mbps",
+					"down": "${hy2_down} mbps"
+				}"
+		fi
+
+		cat >"$HY2_CONFIG_FILE" <<-EOF		
 			{
 				"server": "$(dbus get ss_basic_server):$ss_basic_port",
 				"auth": "${ss_basic_password}",
@@ -2159,7 +2185,7 @@ create_hy2_json(){
 					"insecure": $(get_function_switch $ss_basic_allowinsecure)
 				},
 				"fastOpen": true,
-				"lazy": true,
+				"lazy": true${hy2_obfs_block}${hy2_bw_block},
 				"socks5": {
 					"listen": "127.0.0.1:23456"
 				},

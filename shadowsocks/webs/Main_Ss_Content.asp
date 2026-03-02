@@ -257,7 +257,7 @@ function save() {
 	//define dbus object to save
 	var dbus = {};
 	//key define
-	var params_input = ["ssconf_basic_node", "ss_basic_mode", "ss_basic_server", "ss_basic_port", "ss_basic_method", "ss_basic_koolgame_udp", "ss_basic_ss_v2ray_plugin", "ss_basic_ss_v2ray_plugin_opts", "ss_basic_rss_protocol", "ss_basic_naive_protocol","ss_basic_naive_user","ss_basic_rss_protocol_param", "ss_basic_rss_obfs", "ss_basic_rss_obfs_param", "ssconf_basic_ping_node", "ssconf_basic_ping_method", "ssconf_basic_test_node", "ssconf_basic_test_domain", "ss_dns_china", "ss_dns_china_user", "ss_foreign_dns", "ss_dns2socks_user", "ss_chinadns_user", "ss_chinadns1_user",  "ss_sstunnel_user", "ss_direct_user", "ss_game2_dns_foreign", "ss_game2_dns2ss_user", "$ss_basic_kcp_lserver", "ss_basic_kcp_lport", "ss_basic_kcp_server", "ss_basic_kcp_port", "ss_basic_kcp_parameter", "ss_basic_rule_update", "ss_basic_rule_update_time", "ssr_subscribe_mode", "ssr_subscribe_obfspara", "ssr_subscribe_obfspara_val", "ss_basic_online_links_goss", "ss_basic_node_update", "ss_basic_node_update_day", "ss_basic_node_update_hr", "ss_base64_links", "ss_basic_refreshrate", "ss_basic_refreshrate", "ss_acl_default_port", "ss_online_action", "ss_acl_default_mode", "ss_basic_kcp_method", "ss_basic_kcp_password", "ss_basic_kcp_mode", "ss_basic_kcp_encrypt", "ss_basic_kcp_mtu", "ss_basic_kcp_sndwnd", "ss_basic_kcp_rcvwnd", "ss_basic_kcp_conn", "ss_basic_kcp_extra", "ss_basic_udp_software", "ss_basic_udp_node", "ss_basic_udpv1_lserver", "ss_basic_udpv1_lport", "ss_basic_udpv1_rserver", "ss_basic_udpv1_rport", "ss_basic_udpv1_password", "ss_basic_udpv1_mode", "ss_basic_udpv1_duplicate_nu", "ss_basic_udpv1_duplicate_time", "ss_basic_udpv1_jitter", "ss_basic_udpv1_report", "ss_basic_udpv1_drop", "ss_basic_udpv2_lserver", "ss_basic_udpv2_lport", "ss_basic_udpv2_rserver", "ss_basic_udpv2_rport", "ss_basic_udpv2_password", "ss_basic_udpv2_fec", "ss_basic_udpv2_timeout", "ss_basic_udpv2_mode", "ss_basic_udpv2_report", "ss_basic_udpv2_mtu", "ss_basic_udpv2_jitter", "ss_basic_udpv2_interval", "ss_basic_udpv2_drop", "ss_basic_udpv2_other", "ss_basic_udp2raw_lserver", "ss_basic_udp2raw_lport", "ss_basic_udp2raw_rserver", "ss_basic_udp2raw_rport", "ss_basic_udp2raw_password", "ss_basic_udp2raw_rawmode", "ss_basic_udp2raw_ciphermode", "ss_basic_udp2raw_authmode", "ss_basic_udp2raw_lowerlevel", "ss_basic_udp2raw_other", "ss_basic_udp_upstream_mtu", "ss_basic_udp_upstream_mtu_value", "ss_basic_v2ray_uuid", "ss_basic_v2ray_alterid","ss_basic_v2ray_protocol","ss_basic_v2ray_xray", "ss_basic_v2ray_security", "ss_basic_v2ray_network", "ss_basic_v2ray_headtype_tcp", "ss_basic_v2ray_headtype_kcp", "ss_basic_v2ray_network_host", "ss_basic_v2ray_serviceName", "ss_basic_v2ray_network_path", "ss_basic_v2ray_network_tlshost", "ss_basic_trojan_sni", "ss_basic_trojan_binary", "ss_basic_trojan_network", "ss_basic_fingerprint", "ss_basic_v2ray_network_flow", "ss_basic_v2ray_network_security", "ss_basic_v2ray_mux_concurrency", "ss_basic_xray_publicKey", "ss_basic_xray_shortId",	"ss_reboot_check", "ss_basic_week", "ss_basic_day", "ss_basic_inter_min", "ss_basic_inter_hour", "ss_basic_inter_day", "ss_basic_inter_pre", "ss_basic_time_hour", "ss_basic_time_min", "ss_basic_tri_reboot_time", "ss_basic_tri_reboot_policy", "ss_basic_dnsmasq_fastlookup", "ss_basic_server_resolver", "ss_basic_server_resolver_user"];
+	var params_input = ["ssconf_basic_node", "ss_basic_mode", "ss_basic_server", "ss_basic_port", "ss_basic_method", "ss_basic_koolgame_udp", "ss_basic_ss_v2ray_plugin", "ss_basic_ss_v2ray_plugin_opts", "ss_basic_rss_protocol", "ss_basic_naive_protocol","ss_basic_naive_user","ss_basic_rss_protocol_param", "ss_basic_rss_obfs", "ss_basic_rss_obfs_param", "ssconf_basic_ping_node", "ssconf_basic_ping_method", "ssconf_basic_test_node", "ssconf_basic_test_domain", "ss_dns_china", "ss_dns_china_user", "ss_foreign_dns", "ss_dns2socks_user", "ss_chinadns_user", "ss_chinadns1_user",  "ss_sstunnel_user", "ss_direct_user", "ss_game2_dns_foreign", "ss_game2_dns2ss_user", "$ss_basic_kcp_lserver", "ss_basic_kcp_lport", "ss_basic_kcp_server", "ss_basic_kcp_port", "ss_basic_kcp_parameter", "ss_basic_rule_update", "ss_basic_rule_update_time", "ssr_subscribe_mode", "ssr_subscribe_obfspara", "ssr_subscribe_obfspara_val", "ss_basic_online_links_goss", "ss_basic_node_update", "ss_basic_node_update_day", "ss_basic_node_update_hr", "ss_base64_links", "ss_basic_refreshrate", "ss_basic_refreshrate", "ss_acl_default_port", "ss_online_action", "ss_acl_default_mode", "ss_basic_kcp_method", "ss_basic_kcp_password", "ss_basic_kcp_mode", "ss_basic_kcp_encrypt", "ss_basic_kcp_mtu", "ss_basic_kcp_sndwnd", "ss_basic_kcp_rcvwnd", "ss_basic_kcp_conn", "ss_basic_kcp_extra", "ss_basic_udp_software", "ss_basic_udp_node", "ss_basic_udpv1_lserver", "ss_basic_udpv1_lport", "ss_basic_udpv1_rserver", "ss_basic_udpv1_rport", "ss_basic_udpv1_password", "ss_basic_udpv1_mode", "ss_basic_udpv1_duplicate_nu", "ss_basic_udpv1_duplicate_time", "ss_basic_udpv1_jitter", "ss_basic_udpv1_report", "ss_basic_udpv1_drop", "ss_basic_udpv2_lserver", "ss_basic_udpv2_lport", "ss_basic_udpv2_rserver", "ss_basic_udpv2_rport", "ss_basic_udpv2_password", "ss_basic_udpv2_fec", "ss_basic_udpv2_timeout", "ss_basic_udpv2_mode", "ss_basic_udpv2_report", "ss_basic_udpv2_mtu", "ss_basic_udpv2_jitter", "ss_basic_udpv2_interval", "ss_basic_udpv2_drop", "ss_basic_udpv2_other", "ss_basic_udp2raw_lserver", "ss_basic_udp2raw_lport", "ss_basic_udp2raw_rserver", "ss_basic_udp2raw_rport", "ss_basic_udp2raw_password", "ss_basic_udp2raw_rawmode", "ss_basic_udp2raw_ciphermode", "ss_basic_udp2raw_authmode", "ss_basic_udp2raw_lowerlevel", "ss_basic_udp2raw_other", "ss_basic_udp_upstream_mtu", "ss_basic_udp_upstream_mtu_value", "ss_basic_v2ray_uuid", "ss_basic_v2ray_alterid","ss_basic_v2ray_protocol","ss_basic_v2ray_xray", "ss_basic_v2ray_security", "ss_basic_v2ray_network", "ss_basic_v2ray_headtype_tcp", "ss_basic_v2ray_headtype_kcp", "ss_basic_v2ray_network_host", "ss_basic_v2ray_serviceName", "ss_basic_v2ray_network_path", "ss_basic_v2ray_network_tlshost", "ss_basic_trojan_sni", "ss_basic_trojan_binary", "ss_basic_trojan_network", "ss_basic_hy2_obfs", "ss_basic_hy2_up_mbps", "ss_basic_hy2_down_mbps", "ss_basic_fingerprint", "ss_basic_v2ray_network_flow", "ss_basic_v2ray_network_security", "ss_basic_v2ray_mux_concurrency", "ss_basic_xray_publicKey", "ss_basic_xray_shortId",	"ss_reboot_check", "ss_basic_week", "ss_basic_day", "ss_basic_inter_min", "ss_basic_inter_hour", "ss_basic_inter_day", "ss_basic_inter_pre", "ss_basic_time_hour", "ss_basic_time_min", "ss_basic_tri_reboot_time", "ss_basic_tri_reboot_policy", "ss_basic_dnsmasq_fastlookup", "ss_basic_server_resolver", "ss_basic_server_resolver_user"];
 	var params_check = ["ss_basic_enable", "ss_basic_use_kcp", "ss_basic_gfwlist_update", "ss_basic_chnroute_update", "ss_basic_cdn_update", "ss_basic_kcp_nocomp", "ss_basic_udp_boost_enable", "ss_basic_udpv1_disable_filter", "ss_basic_udpv2_disableobscure", "ss_basic_udpv2_disablechecksum", "ss_basic_udp2raw_boost_enable", "ss_basic_udp2raw_a", "ss_basic_udp2raw_keeprule", "ss_basic_v2ray_use_json", "ss_basic_v2ray_mux_enable","ss_basic_allowinsecure", "ss_basic_fragment", "ss_basic_dns_hijack", "ss_basic_udp_sync"];
 	var params_base64_a = ["ss_dnsmasq", "ss_wan_white_ip", "ss_wan_white_domain", "ss_wan_black_ip", "ss_wan_black_domain", "ss_online_links"];
 	var params_base64_b = ["ss_basic_password", "ss_basic_custom"];
@@ -360,7 +360,7 @@ function save() {
 		}
 	}
 	// node data: write node data under using from the main pannel incase of data change
-	var params = ["server", "mode", "port", "method", "ss_v2ray_plugin", "ss_v2ray_plugin_opts", "rss_protocol","naive_protocol", "naive_user","rss_protocol_param", "rss_obfs", "rss_obfs_param", "koolgame_udp", "v2ray_uuid", "v2ray_alterid", "v2ray_protocol", "v2ray_xray", "v2ray_security", "v2ray_network", "v2ray_headtype_tcp", "v2ray_headtype_kcp", "v2ray_network_host","v2ray_network_path", "v2ray_network_tlshost", "v2ray_network_flow", "v2ray_network_security", "v2ray_mux_concurrency","trojan_sni", "trojan_binary", "trojan_network", "fingerprint","xray_publicKey", "xray_shortId"];
+	var params = ["server", "mode", "port", "method", "ss_v2ray_plugin", "ss_v2ray_plugin_opts", "rss_protocol","naive_protocol", "naive_user","rss_protocol_param", "rss_obfs", "rss_obfs_param", "koolgame_udp", "v2ray_uuid", "v2ray_alterid", "v2ray_protocol", "v2ray_xray", "v2ray_security", "v2ray_network", "v2ray_headtype_tcp", "v2ray_headtype_kcp", "v2ray_network_host","v2ray_network_path", "v2ray_network_tlshost", "v2ray_network_flow", "v2ray_network_security", "v2ray_mux_concurrency","trojan_sni", "trojan_binary", "trojan_network", "hy2_obfs", "hy2_up_mbps", "hy2_down_mbps", "fingerprint","xray_publicKey", "xray_shortId"];
 	for (var i = 0; i < params.length; i++) {
 		dbus["ssconf_basic_" + params[i] + "_" + node_sel] = E("ss_basic_" + params[i]).value;
 	}
@@ -385,7 +385,7 @@ function save() {
 	}
 	// adjust some value when switch node between ss ssr v2ray koolgame
 	if (typeof(db_ss["ssconf_basic_rss_protocol_" + node_sel]) != "undefined"){
-			var remove_ssr = [ "ss_v2ray_plugin", "ss_v2ray_plugin_opts", "koolgame_udp","naive_protocol", "naive_user","v2ray_xray","v2ray_protocol", "v2ray_use_json", "v2ray_uuid", "v2ray_alterid", "v2ray_security", "v2ray_network", "v2ray_headtype_tcp", "v2ray_headtype_kcp", "v2ray_network_path", "v2ray_network_host","v2ray_network_tlshost","v2ray_network_flow", "v2ray_network_security", "allowinsecure","fragment","v2ray_mux_enable", "v2ray_mux_concurrency", "v2ray_json", "trojan_sni", "trojan_binary", "trojan_network","fingerprint","xray_publicKey","xray_shortId"];
+			var remove_ssr = [ "ss_v2ray_plugin", "ss_v2ray_plugin_opts", "koolgame_udp","naive_protocol", "naive_user","v2ray_xray","v2ray_protocol", "v2ray_use_json", "v2ray_uuid", "v2ray_alterid", "v2ray_security", "v2ray_network", "v2ray_headtype_tcp", "v2ray_headtype_kcp", "v2ray_network_path", "v2ray_network_host","v2ray_network_tlshost","v2ray_network_flow", "v2ray_network_security", "allowinsecure","fragment","v2ray_mux_enable", "v2ray_mux_concurrency", "v2ray_json", "trojan_sni", "trojan_binary", "trojan_network", "hy2_obfs", "hy2_up_mbps", "hy2_down_mbps","fingerprint","xray_publicKey","xray_shortId"];
 			//console.log("use ssr");
 			dbus["ss_basic_type"] = "1"
 			dbus["ssconf_basic_type_" + node_sel] = "1"
@@ -647,6 +647,9 @@ function verifyFields(r) {
 	showhide("trojan_network_basic_tr", (trojan_on &&  E("ss_basic_trojan_binary").value == "Trojan-Go"));
 	showhide("trojan_sni_basic_tr", trojan_on);
 	showhide("ss_hysteria_binary_update_tr", (trojan_on &&  E("ss_basic_trojan_binary").value == "Hysteria2"));
+	showhide("hy2_obfs_basic_tr", (trojan_on && E("ss_basic_trojan_binary").value == "Hysteria2"));
+	showhide("hy2_up_basic_tr", (trojan_on && E("ss_basic_trojan_binary").value == "Hysteria2"));
+	showhide("hy2_down_basic_tr", (trojan_on && E("ss_basic_trojan_binary").value == "Hysteria2"));
 	//mixed variables
 	showhide("allowinsecure_basic_tr", ((trojan_on && (E("ss_basic_trojan_binary").value == "Trojan" || E("ss_basic_trojan_binary").value == "Hysteria2")) || (v2ray_on && json_off && tls_on)));
 	showhide("fragment_basic_tr", ((trojan_on && (E("ss_basic_trojan_binary").value == "Trojan" )) || (v2ray_on && json_off )));
@@ -699,6 +702,10 @@ function verifyFields(r) {
 		showhide("v2ray_network_path_tr", (trojango_on_1 && path_on_4));
 		showhide("allowinsecure_tr", !trojango_on_1);
 		showhide("fragment_tr", !trojango_on_1);
+		var hy2_on_1 = E("ss_node_table_trojan_binary").value == "Hysteria2";
+		showhide("hy2_obfs_tr", hy2_on_1);
+		showhide("hy2_up_tr", hy2_on_1);
+		showhide("hy2_down_tr", hy2_on_1);
 	}
 	else if (save_flag == "v2ray") {
 		if(E("ss_node_table_v2ray_use_json").checked){
@@ -1691,7 +1698,7 @@ function add_ss_node_conf(flag) { //点击添加按钮动作
 	var params3 = ["mode", "name", "server", "port", "method", "koolgame_udp"]; //for koolgame
 	var params4_1 = ["mode", "name", "server", "port", "v2ray_uuid", "v2ray_alterid", "v2ray_protocol", "v2ray_xray", "v2ray_security", "v2ray_network", "v2ray_headtype_tcp", "v2ray_headtype_kcp", "v2ray_serviceName", "v2ray_network_path", "v2ray_network_host", "v2ray_network_tlshost", "v2ray_network_flow", "v2ray_network_security", "v2ray_mux_concurrency","fingerprint","xray_publicKey", "xray_shortId"]; //for v2ray
 	var params4_2 = ["v2ray_use_json", "v2ray_mux_enable","allowinsecure","fragment"]; //for v2ray
-	var paramsTrojan = ["name", "server", "mode", "port","v2ray_network_path", "v2ray_network_host","trojan_sni","trojan_binary","trojan_network","allowinsecure","v2ray_mux_concurrency","fingerprint"]; //for trojan
+	var paramsTrojan = ["name", "server", "mode", "port","v2ray_network_path", "v2ray_network_host","trojan_sni","trojan_binary","trojan_network","hy2_obfs","hy2_up_mbps","hy2_down_mbps","allowinsecure","v2ray_mux_concurrency","fingerprint"]; //for trojan
 	var params5 = ["mode", "name", "server", "port", "naive_protocol", "naive_user"]; //for naive
 	
 	if(!$.trim($('#ss_node_table_name').val())){
@@ -1838,7 +1845,10 @@ function add_ss_node_conf(flag) { //点击添加按钮动作
 				E("ss_node_table_v2ray_json").value = "";	
 				E("ss_node_table_trojan_binary").value = "Trojan";		
 				E("ss_node_table_trojan_network").value = "0";		
-				E("ss_node_table_trojan_sni").value = "";	
+				E("ss_node_table_trojan_sni").value = "";
+				E("ss_node_table_hy2_obfs").value = "";
+				E("ss_node_table_hy2_up_mbps").value = "";
+				E("ss_node_table_hy2_down_mbps").value = "";
 				E("ss_node_table_v2ray_network_tlshost").value = ""; 
 				E("ss_node_table_v2ray_network_flow").value = "";
 				E("ss_node_table_allowinsecure").value = "0";
@@ -4119,7 +4129,25 @@ function set_cron(action) {
 																	<input type="text" name="ss_node_table_trojan_sni" id="ss_node_table_trojan_sni" class="input_ss_table"  placeholder="没有请留空"  style="width:342px;" maxlength="300" value="" />
 																</td>
 															</tr>
-															<tr id="fingerprint_tr" style="display: none;">
+															<tr id="hy2_obfs_tr" style="display: none;">
+										<th width="35%">Hysteria2 混淆密码 (obfs)</th>
+										<td>
+											<input type="text" name="ss_node_table_hy2_obfs" id="ss_node_table_hy2_obfs" class="input_ss_table" placeholder="可留空；填写则启用 salamander" style="width:342px;" maxlength="300" value="" />
+										</td>
+									</tr>
+									<tr id="hy2_up_tr" style="display: none;">
+										<th width="35%">Hysteria2 Upload (mbps)</th>
+										<td>
+											<input type="text" name="ss_node_table_hy2_up_mbps" id="ss_node_table_hy2_up_mbps" class="input_ss_table" placeholder="例如：20" style="width:342px;" maxlength="10" value="" />
+										</td>
+									</tr>
+									<tr id="hy2_down_tr" style="display: none;">
+										<th width="35%">Hysteria2 Download (mbps)</th>
+										<td>
+											<input type="text" name="ss_node_table_hy2_down_mbps" id="ss_node_table_hy2_down_mbps" class="input_ss_table" placeholder="例如：100" style="width:342px;" maxlength="10" value="" />
+										</td>
+									</tr>
+									<tr id="fingerprint_tr" style="display: none;">
 																<th width="35%">
 																	<a class="hintstyle" href="javascript:void(0);" onclick="openssHint(114)">指纹 (fingerprint)</a>
 																</th>															
@@ -4556,6 +4584,24 @@ function set_cron(action) {
 													<th width="35%"><a class="hintstyle" href="javascript:void(0);" onclick="openssHint(110)">tls/xtls域名 (SNI)</a></th>
 													<td>
 														<input type="text" name="ss_basic_trojan_sni" id="ss_basic_trojan_sni" class="input_ss_table"  style="width:300px;" placeholder="没有请留空" maxlength="300" value=""/>
+													</td>
+												</tr>
+												<tr id="hy2_obfs_basic_tr" style="display: none;">
+													<th width="35%">Hysteria2 混淆密码 (obfs)</th>
+													<td>
+														<input type="text" name="ss_basic_hy2_obfs" id="ss_basic_hy2_obfs" class="input_ss_table" style="width:300px;" placeholder="可留空；填写则启用 salamander" maxlength="300" value=""/>
+													</td>
+												</tr>
+												<tr id="hy2_up_basic_tr" style="display: none;">
+													<th width="35%">Hysteria2 Upload (mbps)</th>
+													<td>
+														<input type="text" name="ss_basic_hy2_up_mbps" id="ss_basic_hy2_up_mbps" class="input_ss_table" style="width:300px;" placeholder="例如：20" maxlength="10" value=""/>
+													</td>
+												</tr>
+												<tr id="hy2_down_basic_tr" style="display: none;">
+													<th width="35%">Hysteria2 Download (mbps)</th>
+													<td>
+														<input type="text" name="ss_basic_hy2_down_mbps" id="ss_basic_hy2_down_mbps" class="input_ss_table" style="width:300px;" placeholder="例如：100" maxlength="10" value=""/>
 													</td>
 												</tr>
 												<tr id="fingerprint_basic_tr" style="display: none;">

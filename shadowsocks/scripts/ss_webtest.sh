@@ -587,6 +587,32 @@ create_naive_json(){
 create_hy2_json(){
 	rm -f /tmp/tmp_hysteria.json 
 
+		local hy2_obfs="$(eval echo \$ssconf_basic_hy2_obfs_$nu)"
+	local hy2_up="$(eval echo \$ssconf_basic_hy2_up_mbps_$nu)"
+	local hy2_down="$(eval echo \$ssconf_basic_hy2_down_mbps_$nu)"
+	local hy2_obfs_block=""
+	local hy2_bw_block=""
+
+	if [ -n "$hy2_obfs" ]; then
+		hy2_obfs_block=",
+				"obfs": {
+					"type": "salamander",
+					"salamander": {
+						"password": "$hy2_obfs"
+					}
+				}"
+	fi
+
+	if [ -n "$hy2_up" ] || [ -n "$hy2_down" ]; then
+		[ -z "$hy2_up" ] && hy2_up="10"
+		[ -z "$hy2_down" ] && hy2_down="50"
+		hy2_bw_block=",
+				"bandwidth": {
+					"up": "${hy2_up} mbps",
+					"down": "${hy2_down} mbps"
+				}"
+	fi
+
 	cat >/tmp/tmp_hysteria.json <<-EOF
 				{
 				"server": "${array1}:${array2}",
@@ -596,7 +622,7 @@ create_hy2_json(){
 					"insecure": $(get_function_switch $(eval echo \$ssconf_basic_allowinsecure_$nu))
 				},
 				"fastOpen": true,
-				"lazy": true,
+				"lazy": true${hy2_obfs_block}${hy2_bw_block},
 				"socks5": {
 					"listen": "127.0.0.1:23458"
 				}

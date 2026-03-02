@@ -140,3 +140,10 @@ Supported models (koolshare Merlin **380** based firmware):
 - Startup path now hard-blocks removed legacy node types (`SSR` / `Naive`) instead of coercing them to SS.
 - If such a node is selected, startup exits with an explicit migration/delete prompt to avoid undefined routing behavior.
 - Minor front-end compatibility cleanup: removed trailing comma in node-type popup button config.
+
+### Package Build Note (alpha 4.40.0)
+
+- Internal version set to: `4.40.0-alpha`
+- Package path: `380_armv5_packge/4.40.0-alpha/shadowsocks.tar.gz`
+- Integrity file: `380_armv5_packge/4.40.0-alpha/sha1sum.txt`
+- `latest.txt` unchanged by design.

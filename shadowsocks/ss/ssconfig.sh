@@ -2991,9 +2991,15 @@ apply_ss(){
 	ss_pre_start
 	# start
 	#echo_date ------------------------- 启动 【科学上网】 ----------------------------
-	# removed features: disable SSR/KCP/UDPspeeder/UDP2raw at runtime
-	[ "$ss_basic_type" = "1" ] && ss_basic_type="0" && dbus set ss_basic_type="0"
-	[ "$ss_basic_type" = "5" ] && ss_basic_type="0" && dbus set ss_basic_type="0"
+	# removed features: hard-block legacy SSR/Naive node types
+	if [ "$ss_basic_type" = "1" ] || [ "$ss_basic_type" = "5" ]; then
+		echo_date "检测到已移除的节点类型（SSR/Naive），为避免错误路由与错误启动，本次不启动。请先迁移或删除旧节点。"
+		dbus set ss_basic_enable="0"
+		nvram set ss_mode=0
+		nvram commit
+		return 1
+	fi
+	# removed features: disable KCP/UDPspeeder/UDP2raw at runtime
 	ss_basic_use_kcp="0"
 	ss_basic_udp_boost_enable="0"
 	ss_basic_udp2raw_boost_enable="0"

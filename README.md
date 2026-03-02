@@ -134,3 +134,9 @@ Supported models (koolshare Merlin **380** based firmware):
 - Removed `naive` from pack target list.
 - Added runtime fallback guard to avoid starting legacy Naive path.
 - Existing historical Naive nodes now show migration/removal prompt when editing.
+
+### 2026-03-02 Legacy Type Guard Update
+
+- Startup path now hard-blocks removed legacy node types (`SSR` / `Naive`) instead of coercing them to SS.
+- If such a node is selected, startup exits with an explicit migration/delete prompt to avoid undefined routing behavior.
+- Minor front-end compatibility cleanup: removed trailing comma in node-type popup button config.

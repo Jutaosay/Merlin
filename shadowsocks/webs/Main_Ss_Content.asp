@@ -198,7 +198,7 @@ function pop_node_add() {
 					btn4: function(index, layero) {
 						setTimeout("Add_profile();", 300);
 						setTimeout("tabclickhandler(4);", 320);
-					},
+					}
 				});
 			},
 			btn2: function() {

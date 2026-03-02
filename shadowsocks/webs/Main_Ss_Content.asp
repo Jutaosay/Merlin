@@ -4135,21 +4135,21 @@ function set_cron(action) {
 																</td>
 															</tr>
 															<tr id="hy2_obfs_tr" style="display: none;">
-										<th width="35%">Hysteria2 混淆密码 (obfs)</th>
+										<th width="35%">混淆 (obfs)</th>
 										<td>
 											<input type="text" name="ss_node_table_hy2_obfs" id="ss_node_table_hy2_obfs" class="input_ss_table" placeholder="可留空；填写则启用 salamander" style="width:342px;" maxlength="300" value="" />
 										</td>
 									</tr>
 									<tr id="hy2_up_tr" style="display: none;">
-										<th width="35%">Hysteria2 Upload (mbps)</th>
+										<th width="35%">上传</th>
 										<td>
-											<input type="text" name="ss_node_table_hy2_up_mbps" id="ss_node_table_hy2_up_mbps" class="input_ss_table" placeholder="例如：20" style="width:342px;" maxlength="10" value="" />
+											<input type="text" name="ss_node_table_hy2_up_mbps" id="ss_node_table_hy2_up_mbps" class="input_ss_table" placeholder="例如：20（mbps）" style="width:342px;" maxlength="10" value="" />
 										</td>
 									</tr>
 									<tr id="hy2_down_tr" style="display: none;">
-										<th width="35%">Hysteria2 Download (mbps)</th>
+										<th width="35%">下载</th>
 										<td>
-											<input type="text" name="ss_node_table_hy2_down_mbps" id="ss_node_table_hy2_down_mbps" class="input_ss_table" placeholder="例如：100" style="width:342px;" maxlength="10" value="" />
+											<input type="text" name="ss_node_table_hy2_down_mbps" id="ss_node_table_hy2_down_mbps" class="input_ss_table" placeholder="例如：100（mbps）" style="width:342px;" maxlength="10" value="" />
 										</td>
 									</tr>
 									<tr id="fingerprint_tr" style="display: none;">
@@ -4592,21 +4592,21 @@ function set_cron(action) {
 													</td>
 												</tr>
 												<tr id="hy2_obfs_basic_tr" style="display: none;">
-													<th width="35%">Hysteria2 混淆密码 (obfs)</th>
+													<th width="35%">混淆 (obfs)</th>
 													<td>
 														<input type="text" name="ss_basic_hy2_obfs" id="ss_basic_hy2_obfs" class="input_ss_table" style="width:300px;" placeholder="可留空；填写则启用 salamander" maxlength="300" value=""/>
 													</td>
 												</tr>
 												<tr id="hy2_up_basic_tr" style="display: none;">
-													<th width="35%">Hysteria2 Upload (mbps)</th>
+													<th width="35%">上传</th>
 													<td>
-														<input type="text" name="ss_basic_hy2_up_mbps" id="ss_basic_hy2_up_mbps" class="input_ss_table" style="width:300px;" placeholder="例如：20" maxlength="10" value=""/>
+														<input type="text" name="ss_basic_hy2_up_mbps" id="ss_basic_hy2_up_mbps" class="input_ss_table" style="width:300px;" placeholder="例如：20（mbps）" maxlength="10" value=""/>
 													</td>
 												</tr>
 												<tr id="hy2_down_basic_tr" style="display: none;">
-													<th width="35%">Hysteria2 Download (mbps)</th>
+													<th width="35%">下载</th>
 													<td>
-														<input type="text" name="ss_basic_hy2_down_mbps" id="ss_basic_hy2_down_mbps" class="input_ss_table" style="width:300px;" placeholder="例如：100" maxlength="10" value=""/>
+														<input type="text" name="ss_basic_hy2_down_mbps" id="ss_basic_hy2_down_mbps" class="input_ss_table" style="width:300px;" placeholder="例如：100（mbps）" maxlength="10" value=""/>
 													</td>
 												</tr>
 												<tr id="fingerprint_basic_tr" style="display: none;">

@@ -2114,7 +2114,7 @@ function remove_conf_table(o) { //删除节点功能
 	var p = "ssconf_basic";
 	id = ids[ids.length - 1];
 	var ns = {};
-	var params = ["name", "server", "server_ip", "mode", "port", "password", "method", "rss_protocol", "naive_protocol", "naive_user", "rss_protocol_param", "rss_obfs", "rss_obfs_param", "use_kcp", "ss_v2ray_plugin", "ss_v2ray_plugin_opts", "koolgame_udp", "ping", "web_test", "use_lb", "lbmode", "weight", "use_kcp", "group", "v2ray_uuid", "v2ray_alterid", "v2ray_protocol", "v2ray_xray", "v2ray_security", "v2ray_network", "v2ray_headtype_tcp", "v2ray_headtype_kcp","v2ray_serviceName","v2ray_network_path", "v2ray_network_host", "v2ray_network_tlshost","v2ray_network_flow", "v2ray_network_security", "v2ray_mux_concurrency", "v2ray_json", "v2ray_use_json", "v2ray_mux_enable","allowinsecure","fragment", "type","trojan_sni","trojan_binary", "trojan_network","fingerprint","xray_publicKey", "xray_shortId"];
+	var params = ["name", "server", "server_ip", "mode", "port", "password", "method", "rss_protocol", "naive_protocol", "naive_user", "rss_protocol_param", "rss_obfs", "rss_obfs_param", "use_kcp", "ss_v2ray_plugin", "ss_v2ray_plugin_opts", "koolgame_udp", "ping", "web_test", "use_lb", "lbmode", "weight", "use_kcp", "group", "v2ray_uuid", "v2ray_alterid", "v2ray_protocol", "v2ray_xray", "v2ray_security", "v2ray_network", "v2ray_headtype_tcp", "v2ray_headtype_kcp","v2ray_serviceName","v2ray_network_path", "v2ray_network_host", "v2ray_network_tlshost","v2ray_network_flow", "v2ray_network_security", "v2ray_mux_concurrency", "v2ray_json", "v2ray_use_json", "v2ray_mux_enable","allowinsecure","fragment", "type","trojan_sni","trojan_binary", "trojan_network","hy2_obfs","hy2_up_mbps","hy2_down_mbps","fingerprint","xray_publicKey", "xray_shortId"];
 	for (var i = 0; i < params.length; i++) {
 		ns[p + "_" + params[i] + "_" + id] = "";
 	}
@@ -2141,7 +2141,7 @@ function edit_conf_table(o) { //编辑节点功能，显示编辑面板
 	var c = confs[id];
 	var params1_base64 = ["password"];
 	var params1_check = ["v2ray_use_json", "v2ray_mux_enable","allowinsecure","fragment"];
-	var params1_input = ["name", "server", "mode", "port", "method", "ss_v2ray_plugin", "ss_v2ray_plugin_opts", "rss_protocol", "rss_protocol_param", "rss_obfs", "rss_obfs_param", "koolgame_udp", "v2ray_uuid", "v2ray_alterid", "v2ray_protocol", "v2ray_xray", "v2ray_security", "v2ray_network", "v2ray_headtype_tcp", "v2ray_headtype_kcp","v2ray_serviceName", "v2ray_network_path", "v2ray_network_host", "v2ray_network_tlshost", "v2ray_network_flow", "v2ray_network_security", "v2ray_mux_concurrency", "trojan_sni", "fingerprint", "naive_protocol", "naive_user","xray_publicKey", "xray_shortId"];
+	var params1_input = ["name", "server", "mode", "port", "method", "ss_v2ray_plugin", "ss_v2ray_plugin_opts", "rss_protocol", "rss_protocol_param", "rss_obfs", "rss_obfs_param", "koolgame_udp", "v2ray_uuid", "v2ray_alterid", "v2ray_protocol", "v2ray_xray", "v2ray_security", "v2ray_network", "v2ray_headtype_tcp", "v2ray_headtype_kcp","v2ray_serviceName", "v2ray_network_path", "v2ray_network_host", "v2ray_network_tlshost", "v2ray_network_flow", "v2ray_network_security", "v2ray_mux_concurrency", "trojan_sni", "hy2_obfs", "hy2_up_mbps", "hy2_down_mbps", "fingerprint", "naive_protocol", "naive_user","xray_publicKey", "xray_shortId"];
 	if(c["v2ray_json"]){
 		E("ss_node_table_v2ray_json").value = do_js_beautify(Base64.decode(c["v2ray_json"]));
 	}
@@ -2238,7 +2238,7 @@ function edit_ss_node_conf(flag) { //编辑节点功能，数据重写
 	var params3 = ["name", "server", "mode", "port", "method", "koolgame_udp"]; //for koolgame
 	var params4_1 = ["mode", "name", "server", "port", "v2ray_uuid", "v2ray_alterid", "v2ray_protocol", "v2ray_xray", "v2ray_security", "v2ray_network", "v2ray_headtype_tcp", "v2ray_headtype_kcp", "v2ray_serviceName","v2ray_network_path", "v2ray_network_host", "v2ray_network_tlshost", "v2ray_network_flow", "v2ray_network_security", "v2ray_mux_concurrency","fingerprint","xray_publicKey", "xray_shortId"]; //for v2ray
 	var params4_2 = ["v2ray_use_json", "v2ray_mux_enable","allowinsecure","fragment"]; //for v2ray
-	var paramsTrojan = ["name", "server", "mode", "port","trojan_binary", "trojan_network", "v2ray_network_path", "v2ray_network_host", "trojan_sni", "fingerprint", "allowinsecure","fragment", "v2ray_mux_concurrency"]; //for trojan
+	var paramsTrojan = ["name", "server", "mode", "port","trojan_binary", "trojan_network", "v2ray_network_path", "v2ray_network_host", "trojan_sni", "hy2_obfs", "hy2_up_mbps", "hy2_down_mbps", "fingerprint", "allowinsecure","fragment", "v2ray_mux_concurrency"]; //for trojan
 	var params5 = ["name", "server", "mode", "port", "naive_protocol", "naive_user"]; //for naive
 	if (flag == 'shadowsocks') {
 		for (var i = 0; i < params1.length; i++) {

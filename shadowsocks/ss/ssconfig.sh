@@ -466,7 +466,7 @@ get_type_name() {
 			echo "trojan"
 		;;
 		5)
-			echo "naive"
+			echo "removed-naive"
 		;;
 	esac
 }
@@ -2993,6 +2993,7 @@ apply_ss(){
 	#echo_date ------------------------- 启动 【科学上网】 ----------------------------
 	# removed features: disable SSR/KCP/UDPspeeder/UDP2raw at runtime
 	[ "$ss_basic_type" = "1" ] && ss_basic_type="0" && dbus set ss_basic_type="0"
+	[ "$ss_basic_type" = "5" ] && ss_basic_type="0" && dbus set ss_basic_type="0"
 	ss_basic_use_kcp="0"
 	ss_basic_udp_boost_enable="0"
 	ss_basic_udp2raw_boost_enable="0"
@@ -3016,7 +3017,7 @@ apply_ss(){
 	[ "$ss_basic_type" == "2" ] && start_koolgame
 	[ "$ss_basic_type" == "3" ] || [ "$ss_basic_type" == "4" -a "$ss_basic_trojan_binary" == "Trojan" ] && start_v2ray_xray
 	[ "$ss_basic_type" == "4" -a "$ss_basic_trojan_binary" == "Trojan-Go" ] && start_trojango
-	[ "$ss_basic_type" == "5" ] && start_naiveproxy
+	
 	[ "$ss_basic_type" == "4" -a "$ss_basic_trojan_binary" == "Hysteria2" ] && start_hy2
 	
 	[ "$ss_basic_type" != "2" ] && start_dns

@@ -180,7 +180,7 @@ function pop_node_add() {
 					shade: 0.2,
 					time: 20000, //20s后自动关闭
 					area: ['450px'],
-					btn: ['添加ss节点', '添加koolgame节点', '添加V2Ray节点','添加Trojan(go)/Hysteria2节点','添加NaiveProxy节点'],
+					btn: ['添加ss节点', '添加koolgame节点', '添加V2Ray节点','添加Trojan(go)/Hysteria2节点'],
 					btnAlign: 'c',
 					btn1: function(index, layero) {
 						setTimeout("Add_profile();", 300);
@@ -199,10 +199,6 @@ function pop_node_add() {
 						setTimeout("Add_profile();", 300);
 						setTimeout("tabclickhandler(4);", 320);
 					},
-					btn5: function(index, layero) {
-						setTimeout("Add_profile();", 300);
-						setTimeout("tabclickhandler(5);", 320);
-					}
 				});
 			},
 			btn2: function() {
@@ -1482,6 +1478,9 @@ function tabclickhandler(_type) {
 		E('naive_protocol_tr').style.display = "none";
 		E('naive_user_tr').style.display = "none";
 	} else if (_type == 5) {
+		alert("Naive 支持已移除，请使用 SS / V2Ray / Trojan / Hysteria2 节点。");
+		tabclickhandler(0);
+		return false;
 		save_flag = "naive";
 		E("vpnc_type").value = "naive";
 		E('naiveTitle').className = "vpnClientTitle_td_click";
@@ -2201,10 +2200,8 @@ for (var i = 0; i < params1_input.length; i++) {
 		alert("检测到历史SSR节点：当前版本已移除SSR，请在节点列表中删除或手动迁移为SS/V2Ray/Trojan/Hysteria2节点。");
 		return false;
 	} else if (c["naive_protocol"]) { //判断节点为naive
-			$("#vpnc_settings").fadeIn(200);
-			E("naiveTitle").style.display = "";
-			$("#naiveTitle").html("编辑Naive账号");
-			tabclickhandler(5);
+			alert("检测到历史 Naive 节点：当前版本已移除 Naive，请删除或迁移该节点。");
+			return false;
 	} else if (c["koolgame_udp"] == "0" || c["koolgame_udp"] == "1") { //判断节点为koolgame
 			$("#vpnc_settings").fadeIn(200);
 			E("gamev2Title").style.display = "";
@@ -3793,7 +3790,7 @@ function set_cron(action) {
 													  		<td width="18%" align="center" id="gamev2Title" onclick="tabclickhandler(2);">添加koolgame配置</td>
 													  		<td width="17%" align="center" id="v2rayTitle" onclick="tabclickhandler(3);">添加V2Ray配置</td>
 															<td width="17%" align="center" id="trojanTitle" onclick="tabclickhandler(4);">添加Trojan配置</td>
-															<td width="17%" align="center" id="naiveTitle" onclick="tabclickhandler(5);">添加Naive配置</td>
+															<td width="17%" align="center" id="naiveTitle" onclick="tabclickhandler(5);" style="display:none;">添加Naive配置</td>
 															</tr>
 														</table>
 													</td>

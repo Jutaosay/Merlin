@@ -1838,7 +1838,7 @@ start_update(){
 add() {
 	echo_date "==================================================================="
 	usleep 250000
-	echo_date 通过SS/v2ray/Trojan/Hysteria2链接添加节点...
+	echo_date 通过SS/v2ray/Trojan/Hysteria2链接添加节点（Naive已移除）...
 	rm -rf /tmp/ssr_subscribe_file.txt >/dev/null 2>&1
 	rm -rf /tmp/ssr_subscribe_file_temp1.txt >/dev/null 2>&1
 	rm -rf /tmp/all_localservers >/dev/null 2>&1

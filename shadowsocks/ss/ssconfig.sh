@@ -511,10 +511,7 @@ get_dns_name() {
 }
 
 start_sslocal(){
-	if [ "$ss_basic_type" == "1" ];then
-		echo_date 开启ssr-local，提供socks5代理端口：23456
-		rss-local -l 23456 -c $CONFIG_FILE -u -f /var/run/sslocal1.pid >/dev/null 2>&1
-	elif  [ "$ss_basic_type" == "0" ];then
+	if [ "$ss_basic_type" == "0" ] || [ "$ss_basic_type" == "1" ];then
 		echo_date 开启ss-local，提供socks5代理端口：23456
 		if [ "$ss_basic_ss_v2ray_plugin" == "0" ];then
 			ss-local -l 23456 -c $CONFIG_FILE -u -f /var/run/sslocal1.pid >/dev/null 2>&1
@@ -594,10 +591,7 @@ start_dns(){
 	
 	# Start ss-tunnel
 	if [ "$ss_foreign_dns" == "4" ];then
-		if [ "$ss_basic_type" == "1" ];then
-			echo_date 开启ssr-tunnel，用于dns解析...
-			rss-tunnel -c $CONFIG_FILE -l $DNSF_PORT -L $ss_sstunnel_user -u -f /var/run/sstunnel.pid >/dev/null 2>&1
-		elif [ "$ss_basic_type" == "0" ];then
+		if [ "$ss_basic_type" == "0" ] || [ "$ss_basic_type" == "1" ];then
 			echo_date 开启ss-tunnel，用于dns解析...
 			if [ "$ss_basic_ss_v2ray_plugin" == "0" ];then
 				ss-tunnel -c $CONFIG_FILE -l $DNSF_PORT -L $ss_sstunnel_user -u -f /var/run/sstunnel.pid >/dev/null 2>&1
@@ -1110,10 +1104,7 @@ start_speeder(){
 }
 
 start_ss_redir(){
-	if [ "$ss_basic_type" == "1" ];then
-		echo_date 开启ssr-redir进程，用于透明代理.
-		BIN=rss-redir
-	elif  [ "$ss_basic_type" == "0" ];then
+	if [ "$ss_basic_type" == "0" ] || [ "$ss_basic_type" == "1" ];then
 		# ss-libev需要大于160的熵才能正常工作
 		start_haveged
 		echo_date 开启ss-redir进程，用于透明代理.
@@ -3000,6 +2991,14 @@ apply_ss(){
 	ss_pre_start
 	# start
 	#echo_date ------------------------- 启动 【科学上网】 ----------------------------
+	# removed features: disable SSR/KCP/UDPspeeder/UDP2raw at runtime
+	[ "$ss_basic_type" = "1" ] && ss_basic_type="0" && dbus set ss_basic_type="0"
+	ss_basic_use_kcp="0"
+	ss_basic_udp_boost_enable="0"
+	ss_basic_udp2raw_boost_enable="0"
+	dbus set ss_basic_use_kcp="0"
+	dbus set ss_basic_udp_boost_enable="0"
+	dbus set ss_basic_udp2raw_boost_enable="0"
 	detect
 	resolv_server_ip
 	load_module
@@ -3019,7 +3018,7 @@ apply_ss(){
 	[ "$ss_basic_type" == "4" -a "$ss_basic_trojan_binary" == "Trojan-Go" ] && start_trojango
 	[ "$ss_basic_type" == "5" ] && start_naiveproxy
 	[ "$ss_basic_type" == "4" -a "$ss_basic_trojan_binary" == "Hysteria2" ] && start_hy2
-	[ "$ss_basic_type" != "2" ] && start_kcp
+	
 	[ "$ss_basic_type" != "2" ] && start_dns
 	#===load nat start===
 	load_nat

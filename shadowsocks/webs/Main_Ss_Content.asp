@@ -271,6 +271,10 @@ function save() {
 	for (var i = 0; i < params_check.length; i++) {
 		dbus[params_check[i]] = E(params_check[i]).checked ? '1' : '0';
 	}
+	// hard-disable removed features: KCP / UDPspeeder / UDP2raw
+	dbus["ss_basic_use_kcp"] = "0";
+	dbus["ss_basic_udp_boost_enable"] = "0";
+	dbus["ss_basic_udp2raw_boost_enable"] = "0";
 	// data need base64 encode:format a with "."
 	for (var i = 0; i < params_base64_a.length; i++) {
 		if (!E(params_base64_a[i]).value || E(params_base64_a[i]).value.indexOf(".") != -1) {
@@ -1389,6 +1393,9 @@ function tabclickhandler(_type) {
 		showhide("ss_v2ray_plugin_support", ($("#ss_node_table_mode").val() != "3"));
 		showhide("ss_v2ray_plugin_opts_support", ($("#ss_node_table_mode").val() != "3" && $("#ss_node_table_ss_v2ray_plugin").val() != "0"));
 	} else if (_type == 1) {
+		alert("SSR 功能已移除，请使用 SS / V2Ray / Trojan / Hysteria2 / Naive 节点。");
+		tabclickhandler(0);
+		return false;
 		save_flag = "shadowsocksR";
 		E("vpnc_type").value = "shadowsocksR";
 		E('ssrTitle').className = "vpnClientTitle_td_click";
@@ -3767,8 +3774,8 @@ function set_cron(action) {
 														<input id="show_btn1_1" class="show-btn1_1" style="cursor:pointer" type="button" value="节点管理" />
 														<input id="show_btn2" class="show-btn2" style="cursor:pointer" type="button" value="DNS设定" />
 														<input id="show_btn3" class="show-btn3" style="cursor:pointer" type="button" value="黑白名单" />
-														<input id="show_btn3_1" class="show-btn3_1" style="cursor:pointer" type="button" value="KCP加速" />
-														<input id="show_btn3_2" class="show-btn3_2" style="cursor:pointer" type="button" value="UDP加速"/>
+														<input id="show_btn3_1" class="show-btn3_1" style="cursor:pointer;display:none;" type="button" value="KCP加速" />
+														<input id="show_btn3_2" class="show-btn3_2" style="cursor:pointer;display:none;" type="button" value="UDP加速"/>
 														<input id="show_btn4" class="show-btn4" style="cursor:pointer" type="button" value="更新管理" />
 														<input id="show_btn5" class="show-btn5" style="cursor:pointer" type="button" value="访问控制" />
 														<input id="show_btn6" class="show-btn6" style="cursor:pointer" type="button" value="附加功能" />
@@ -3784,7 +3791,7 @@ function set_cron(action) {
 														<table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" class="vpnClientTitle">
 															<tr>
 													  		<td width="15%" align="center" id="ssTitle" onclick="tabclickhandler(0);">添加SS配置</td>
-													  		<td width="16%" align="center" id="ssrTitle" onclick="tabclickhandler(1);">添加SSR配置</td>
+													  		<td width="16%" align="center" id="ssrTitle" onclick="tabclickhandler(1);" style="display:none;">添加SSR配置</td>
 													  		<td width="18%" align="center" id="gamev2Title" onclick="tabclickhandler(2);">添加koolgame配置</td>
 													  		<td width="17%" align="center" id="v2rayTitle" onclick="tabclickhandler(3);">添加V2Ray配置</td>
 															<td width="17%" align="center" id="trojanTitle" onclick="tabclickhandler(4);">添加Trojan配置</td>

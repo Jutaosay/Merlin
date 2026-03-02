@@ -1558,7 +1558,7 @@ get_oneline_rule_now(){
 		fi
 
 
-		NODE_NU_online=$(</tmp/ssr_subscribe_file_temp1.txt grep -cE '^ss://|^ssr://|^vmess://|^trojan://|^vless://|^trojan-go://|^hysteria2://')
+		NODE_NU_online=$(</tmp/ssr_subscribe_file_temp1.txt grep -cE '^ss://|^vmess://|^trojan://|^vless://|^trojan-go://|^hysteria2://')
 		echo_date "检测到ShadowSocks节点格式，共计${NODE_NU_online}个节点..."
 
 		if [  "$NODE_NU_online" = "0" ] ; then
@@ -1574,7 +1574,7 @@ get_oneline_rule_now(){
 			remarks='AutoSuB'
 			group_index=$((url_count*1000))
 			# 提取节点
-			grep -E '^ss://|^ssr://|^vmess://|^trojan://|^vless://|^trojan-go://|^hysteria2://' /tmp/ssr_subscribe_file_temp1.txt >  /tmp/ssr_subscribe_file_temp2.txt &&  mv  /tmp/ssr_subscribe_file_temp2.txt  /tmp/ssr_subscribe_file_temp1.txt
+			grep -E '^ss://|^vmess://|^trojan://|^vless://|^trojan-go://|^hysteria2://' /tmp/ssr_subscribe_file_temp1.txt >  /tmp/ssr_subscribe_file_temp2.txt &&  mv  /tmp/ssr_subscribe_file_temp2.txt  /tmp/ssr_subscribe_file_temp1.txt
 			
 			# 检测ss ssr vmess trojan vless trojan-go hysteria2 
 			while read -r line
@@ -1838,7 +1838,7 @@ start_update(){
 add() {
 	echo_date "==================================================================="
 	usleep 250000
-	echo_date 通过SS/SSR/v2ray/Trojan链接添加节点...
+	echo_date 通过SS/v2ray/Trojan/Hysteria2链接添加节点...
 	rm -rf /tmp/ssr_subscribe_file.txt >/dev/null 2>&1
 	rm -rf /tmp/ssr_subscribe_file_temp1.txt >/dev/null 2>&1
 	rm -rf /tmp/all_localservers >/dev/null 2>&1
@@ -2002,7 +2002,7 @@ case $ss_online_action in
 	unset_lock
 	;;
 4)
-	# 通过链接添加ss:// ssr:// vmess://
+	# 通过链接添加ss:// vmess://
 	set_lock
 	detect
 	add

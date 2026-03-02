@@ -1,4 +1,4 @@
-# Shadowsocks ONLY on koolshare Merlin 380 ARM （安全，好用）
+# Merlin 380 Shadowsocks Plugin
 This project will update bin and package for [**fancyss_arm380**](https://github.com/hq450/fancyss_history_package/tree/master/legacy/fancyss_arm380)    
 
 add and support new features  
